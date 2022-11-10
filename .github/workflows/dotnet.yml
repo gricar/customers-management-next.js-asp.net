@@ -21,10 +21,9 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run : ls
+      #working-directory: ./CustomersManagementNextAspNet/back/src/CustomersApi
+      # run : dotnet restore
     - name: Build
-      working-directory: ./CustomersManagementNextAspNet/back/src/CustomersApi
-      run: dotnet build --no-restore
+      # run: dotnet build --no-restore
     - name: Test
-      working-directory: ./CustomersManagementNextAspNet/back/src/CustomersApi
-      run: dotnet test --no-build --verbosity normal
+      #run: dotnet test --no-build --verbosity normal
