@@ -21,9 +21,11 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: cd back/src/CustomersApi && dotnet restore
+      working-directory: ./CustomersManagementNextAspNet/back/src/CustomersApi
+      run: dotnet restore
     - name: Build
+      working-directory: ./CustomersManagementNextAspNet/back/src/CustomersApi
       run: dotnet build --no-restore
     - name: Test
-      working-directory: back/src/CustomersApi
+      working-directory: ./CustomersManagementNextAspNet/back/src/CustomersApi
       run: dotnet test --no-build --verbosity normal
