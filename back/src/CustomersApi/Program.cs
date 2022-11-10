@@ -1,4 +1,5 @@
 using CustomersApi.Context;
+using CustomersApi.Seed;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+  var services = scope.ServiceProvider;
+
+  CustomerSeed.Initialize(services);
+}
 
 if (app.Environment.IsDevelopment())
 {
