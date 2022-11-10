@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CustomersApi.Controllers;
 
-[ApiController]
 [Route("api/[controller]")]
+[ApiController]
 public class CustomersController : ControllerBase
 {
-  private ICustomerService _customerService;
+  private readonly ICustomerService _customerService;
 
   public CustomersController(ICustomerService customerService)
   {

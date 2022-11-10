@@ -20,7 +20,7 @@ public class CustomerService : ICustomerService
 
   public async Task<Customer> GetById(int id)
   {
-    return await _context.Customers.FindAsync(id)!;
+    return await _context.Customers.FindAsync(id);
   }
 
   public async Task<IEnumerable<Customer>> GetByName(string name)
