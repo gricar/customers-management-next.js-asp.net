@@ -21,8 +21,7 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      working-directory: ./CustomersManagementNextAspNet/back/src/CustomersApi
-      run: dotnet restore
+      run : pwd
     - name: Build
       working-directory: ./CustomersManagementNextAspNet/back/src/CustomersApi
       run: dotnet build --no-restore
