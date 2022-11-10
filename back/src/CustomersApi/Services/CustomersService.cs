@@ -23,19 +23,12 @@ public class CustomerService : ICustomerService
     return await _context.Customers.FindAsync(id)!;
   }
 
-  public async Task<Customer> GetByName(string name)
+  public async Task<IEnumerable<Customer>> GetByName(string name)
   {
-    IEnumerable<Customer> customers;
     if (!string.IsNullOrWhiteSpace(name))
-    {
-      customers = await _context.Customers.Where(c => c.Name.Contains(name)).ToListAsync();
-    }
-    else
-    {
-      customers = await GetAll();
-    }
+      return await _context.Customers.Where(c => c.Name.Contains(name)).ToListAsync();
 
-    return (Customer)customers;
+    return await GetAll();
   }
 
   public async Task Create(Customer customer)
